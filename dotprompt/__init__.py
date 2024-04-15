@@ -26,4 +26,4 @@ for f in os.listdir(__prompt_dir):
     elif parts[-1] in IGNORED_EXT:
         logging.debug("Ignoring file {}".format(f))
     else:
-        logging.warning("File {} not reconnized as prompt".format(f))
+        logging.warning("File {} unrecognized as prompt".format(f))

@@ -35,9 +35,9 @@ class Prompt:
                 if ":" in var:
                     var_name, var_type = var.split(":")
                     texte = texte.replace("{" + var + "}", "{" + var_name + "}")    #Don't keep teh description in the prompt
-                    self.infos[p_type][var_name] = var_type
+                    self.infos[p_type]['description'][var_name] = var_type
                 else:
-                    self.infos[p_type][var] = "No description found"
+                    self.infos[p_type]['description'][var] = "No description found"
             setattr(self, p_type, texte)
             return p_name
 
