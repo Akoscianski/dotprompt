@@ -2,3 +2,4 @@ build/*
 .idea
 .eeg-info
 /dotprompt.egg-info/
+/dist/*

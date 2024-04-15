@@ -61,5 +61,3 @@ class Prompt:
                 return p_name
         else:
             raise PromptFileError("Impossible to read file {}".format(prompt_file))
-
-    def get
