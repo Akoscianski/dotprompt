@@ -1,3 +1,9 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "dotprompt"
 version = "0.0.1"
@@ -12,16 +18,34 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["feed", "reader", "tutorial"]
-dependencies = [
-    "feedparser >= 5.2.0",
-    "html2text",
-    'tomli; python_version < "3.11"',
-]
-requires-python = ">=3.7"
+keywords = ["GenAI", "prompt"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/Akoscianski/dotprompt"
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 
-[project.urls]
-Homepage = "https://github.com/Akoscianski/dotprompt"
+[tool.bumpver]
+current_version = "0.0.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+pre_commit_hook = ""
+post_commit_hook = ""
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"setup.py" = [
+    "{version}",
+    "{pep440_version}",
+]
+
