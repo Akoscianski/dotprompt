@@ -17,7 +17,7 @@ if not os.path.isdir(__prompt_dir):
     caller_path = os.path.dirname(inspect.getframeinfo(sys._getframe(1)).filename)
     while not_found:
         if "prompts" in os.listdir(caller_path):
-            __prompt_dir = os.path.join(caller_path, "prompts"))
+            __prompt_dir = os.path.join(caller_path, "prompts")
             not_found = False
         elif caller_path == ROOT_DIR:
             raise PrompDirectoryNotFoundError(f"No prompt dir found in {ROOT_DIR}")
