@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dotprompt"
-version = "0.1.3"
+version = "0.1.6"
 description = "Module to incorporate .prompt file to your python code for GenAI"
 readme = "README.md"
 authors = [{ name = "AKoscianski", email = "arnaud.koscianski@gmail.com" }]
@@ -29,7 +29,7 @@ Homepage = "https://github.com/Akoscianski/dotprompt"
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 
 [tool.bumpver]
-current_version = "0.1.3"
+current_version = "0.1.6"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "Bump version {old_version} -> {new_version}"
 commit          = true

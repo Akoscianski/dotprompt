@@ -14,7 +14,7 @@ __prompt_dir =os.path.join(os.getcwd(), 'prompts')
 if not os.path.isdir(__prompt_dir):
     not_found = True
     ROOT_DIR = os.path.abspath(os.curdir)
-    caller_path = os.path.dirname(inspect.getframeinfo(sys._getframe(1)).filename)
+    caller_path = os.path.dirname(sys.argv[0])
     while not_found:
         if "prompts" in os.listdir(caller_path):
             __prompt_dir = os.path.join(caller_path, "prompts")
