@@ -1,5 +1,7 @@
 import logging
 import os
+import inspect
+import sys
 from .prompt import Prompt
 from .exceptions import PrompDirectoryNotFoundError, PromptError
 
@@ -9,6 +11,17 @@ IGNORED_EXT = ['py']
 
 logging.info("Loading prompt files")
 __prompt_dir =os.path.join(os.getcwd(), 'prompts')
+if not os.path.isdir(__prompt_dir):
+    not_found = True
+    ROOT_DIR = os.path.abspath(os.curdir)
+    caller_path = os.path.dirname(inspect.getframeinfo(sys._getframe(1)).filename)
+    while not_found:
+        if "prompts" in os.listdir(caller_path):
+            __prompt_dir = os.path.join(caller_path, "prompts"))
+            not_found = False
+        elif caller_path == ROOT_DIR:
+            raise PrompDirectoryNotFoundError(f"No prompt dir found in {ROOT_DIR}")
+        caller_path = os.path.dirname(caller_path)
 if not os.path.isdir(__prompt_dir):
     raise PrompDirectoryNotFoundError("Prompt directory \"prompts\" not found")
 for f in os.listdir(__prompt_dir):
