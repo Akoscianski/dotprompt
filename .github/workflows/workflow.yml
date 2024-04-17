@@ -28,13 +28,7 @@ jobs:
       run: |
         git config --local user.email "action-bumpver@github.com"
         git config --local user.name "github-actions-bumbver"
-        bumpver update --patch
-      if: github.ref == 'refs/heads/dev'
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        tags: true
+        bumpver update --patch --push
       if: github.ref == 'refs/heads/dev'
     - name: Install pypa/build
       run: >-
