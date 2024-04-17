@@ -1,8 +1,36 @@
 name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
-on: push
-
+on:
+  push:
+    branches:
+      - main
+      - dev
+    tags:
+      - '*'
 jobs:
+  bump-version:
+    name: Bump version
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Install bumpver
+        run: >-
+          python3 -m
+          pip install
+          bumpver
+          --user
+      - name: Bump version and commit changes
+        run: >-
+          bumpver update --patch
+          git commit -am "Bump version"
+          git push
+
   build:
     name: Build distribution 📦
     runs-on: ubuntu-latest

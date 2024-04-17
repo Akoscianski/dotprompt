@@ -38,5 +38,5 @@ push            = false
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
-"src/reader/__init__.py" = ["{version}"]
-
+"setup.py" = ["version='{version}'"]
+"dotprompt/__init__.py" = ['__version__ = "{version}"']
