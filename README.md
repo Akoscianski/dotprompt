@@ -15,6 +15,13 @@ my_project/
         my_other_prompt.jprompt
 ```
 
+If the prompts folder is not located in the project, uses the method `load_folder`:
+```Python
+import dotprompt
+
+dotprompt.load_folder("./my_prompt_files")
+```
+
 Then simply import dotprompt in your code and get your prompts as object of dotprompts
 
 ```python
