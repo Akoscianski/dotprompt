@@ -115,7 +115,7 @@ jobs:
     needs:
     - build
     runs-on: ubuntu-latest
-
+    if: github.ref == 'refs/heads/dev'
     environment:
       name: testpypi
       url: https://test.pypi.org/p/dotprompt
