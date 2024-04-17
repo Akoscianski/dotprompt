@@ -5,7 +5,7 @@ import sys
 from .prompt import Prompt
 from .exceptions import PrompDirectoryNotFoundError, PromptError
 
-__version__ = "0.1.8"
+__version__ = "0.1.9"
 
 IGNORED_EXT = ['py']
 
