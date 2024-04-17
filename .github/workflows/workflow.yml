@@ -26,8 +26,9 @@ jobs:
         --user
     - name: Bump version and commit changes
       run: |
+        git config --local user.email "action-bumpver@github.com"
+        git config --local user.name "github-actions-bumbver"
         bumpver update --patch
-        git commit -m "Bump version"
         git push
       if: github.ref == 'refs/heads/dev'
     - name: Install pypa/build
