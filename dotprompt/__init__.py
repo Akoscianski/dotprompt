@@ -15,9 +15,11 @@ IGNORED_EXT = ['py']
 logging.info("Loading prompt files")
 __prompt_dir =os.path.join(os.getcwd(), 'prompts')
 if not os.path.isdir(__prompt_dir):
+    logging.warning(f"Prompt directory \"prompts\" not found in {__prompt_dir}")
     not_found = True
     ROOT_DIR = os.path.abspath(os.curdir)
     caller_path = os.path.dirname(sys.argv[0])
+    logging.warning(f"Crawling from {caller_path}")
     while not_found:
         if "prompts" in os.listdir(caller_path):
             __prompt_dir = os.path.join(caller_path, "prompts")
