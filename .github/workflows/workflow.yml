@@ -28,9 +28,7 @@ jobs:
       run: |
         git config --local user.email "action-bumpver@github.com"
         git config --local user.name "github-actions-bumbver"
-        bumpver update --patch --push
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        bumpver update --patch
       if: github.ref == 'refs/heads/dev'
     - name: Install pypa/build
       run: >-
