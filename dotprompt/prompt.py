@@ -30,7 +30,7 @@ class Prompt:
             self.infos[p_type] = {"description": commentaires, "variables": {}}
             texte = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
             varaibles_pattern = r'\{([^}]+)\}'
-            variables = re.findall(varaibles_pattern, texte)
+            variables = re.findall(varaibles_pattern, texte.replace("{{", "##"))
             for var in variables:
                 if ":" in var:
                     var_name, var_type = var.split(":")
